@@ -2,7 +2,6 @@ package it.uniroma3.diadia;
 
 
 
-import java.util.Scanner;
 
 /**
  * Questa classe modella un comando.
@@ -22,16 +21,14 @@ public class Comando {
     private String parametro;
 
     public Comando(String istruzione) {
-		Scanner scannerDiParole = new Scanner(istruzione);
+    	
+		String[] parole = istruzione.split(" "); // divido la stringa prima e dopo lo spazio
 
-		// prima parola: nome del comando
-		if (scannerDiParole.hasNext())
-			this.nome = scannerDiParole.next(); 
+        if (parole.length > 0)
+            this.nome = parole[0]; // Prima parola è il Nome del comando
 
-		// seconda parola: eventuale parametro
-		if (scannerDiParole.hasNext())
-			this.parametro = scannerDiParole.next();
-		scannerDiParole.close();
+        if (parole.length > 1)
+            this.parametro = parole[1]; // Seconda parola è il Parametro
     }
 
     public String getNome() {

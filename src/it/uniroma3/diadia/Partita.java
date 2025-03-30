@@ -2,6 +2,8 @@ package it.uniroma3.diadia;
 
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.giocatore.Giocatore;
+
 
 /**
  * Questa classe modella una partita del gioco
@@ -13,18 +15,17 @@ import it.uniroma3.diadia.ambienti.Stanza;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 5;
 	private boolean finita;
-	private int cfu;
 
-	
+	public Giocatore giocatore;
 	public Labirinto labirinto;
 	
 	public Partita(){
 		this.labirinto = new Labirinto();
 		this.labirinto.creaStanze();
 		this.finita = false;
-		this.cfu = CFU_INIZIALI;
+		this.giocatore=new Giocatore();
+		
 	}
 
 	
@@ -41,7 +42,7 @@ public class Partita {
 	 * @return vero se partita finita
 	 */
 	public boolean isFinita() {
-		return finita || vinta() || (cfu == 0);
+		return finita || vinta() || (giocatore.getCfu() == 0);
 	}
 
 	/**
@@ -51,17 +52,10 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-
-	public int getCfu() {
-		return this.cfu;
-	}
-
-	public void setCfu(int cfu) {
-		this.cfu = cfu;		
-	}	
 	
 	//Cfu a stringa
 	public String ToString() {
-		return labirinto.getStanzaCorrente()+"\nCfu = " + this.getCfu();
+		return labirinto.getStanzaCorrente()+"\nCfu = " + this.giocatore.getCfu();
 	}
+
 }
