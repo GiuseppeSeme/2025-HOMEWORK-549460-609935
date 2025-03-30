@@ -5,12 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import dia.Partita;
+import it.uniroma3.diadia.Partita;
 
 class PartitaTest {
 	
 	private Partita partita;
-
 	@BeforeEach
 	void setUp() throws Exception {
 		this.partita=new Partita();
@@ -30,7 +29,7 @@ class PartitaTest {
 	
 	@Test
 	void testPartitaPERSA() {
-		partita.setCfu(0);
+		this.partita.giocatore.setCfu(0);
 		assertFalse(this.partita.vinta());
 	}
 
