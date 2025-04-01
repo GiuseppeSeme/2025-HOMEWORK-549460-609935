@@ -4,16 +4,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import it.uniroma3.diadia.giocatore.Giocatore;
 
 class GiocatoreTest {
 
+	private Giocatore giocatore;
 	@BeforeEach
 	void setUp() throws Exception {
+		giocatore =new Giocatore();
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testCfuIniziali() {
+		assertEquals(20,giocatore.getCfu());
 	}
-
+	
+	@Test
+	void testsetCfu() {
+		giocatore.setCfu(15);
+		assertEquals(15,giocatore.getCfu());
+	}
+	
+	@Test
+    void testBorsaVuotaInizialmente() {
+        assertTrue(giocatore.borsa.isEmpty());
+    }
 }
