@@ -2,14 +2,18 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.Partita;
 
+
+
 class PartitaTest {
 	
 	private Partita partita;
+
 	@BeforeEach
 	void setUp() throws Exception {
 		this.partita=new Partita();
@@ -29,7 +33,7 @@ class PartitaTest {
 	
 	@Test
 	void testPartitaPERSA() {
-		this.partita.giocatore.setCfu(0);
+		partita.giocatore.setCfu(0);
 		assertFalse(this.partita.vinta());
 	}
 
