@@ -15,13 +15,12 @@ Questa classe modella una partita del gioco*
 public class Partita {
 
     private boolean finita;
-
     public Giocatore giocatore;
     public Labirinto labirinto;
 
-    public Partita(){
-        this.labirinto = new Labirinto();
-        labirinto.creaStanze();
+    public Partita(Labirinto labirinto){
+        this.labirinto = labirinto;
+       // labirinto.creaStanze();
         this.finita = false;
         this.giocatore=new Giocatore();
 
