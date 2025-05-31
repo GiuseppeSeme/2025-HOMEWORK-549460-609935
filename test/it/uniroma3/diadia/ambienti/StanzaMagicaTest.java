@@ -1,6 +1,5 @@
 package it.uniroma3.diadia.ambienti;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
