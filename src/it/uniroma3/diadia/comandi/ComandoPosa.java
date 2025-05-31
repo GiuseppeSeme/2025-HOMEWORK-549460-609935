@@ -4,7 +4,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPosa implements Comando{
+public class ComandoPosa extends AbstractComando{
 	private IO io;
 	private String attrezzo;
 	private final static String NOME="aiuto";
@@ -26,20 +26,7 @@ public class ComandoPosa implements Comando{
 			}
 		}
 	}
-
-	@Override
-	public void setParametro(String parametro){
-		this.attrezzo=parametro;
-	}
-
-	@Override
-	public String getParametro(){
-		return this.attrezzo;
-	}
-	@Override
-	public void setIo(IO io){
-		this.io=io;
-	}
+	
 	@Override
 	public String getNome(){
 		return NOME;

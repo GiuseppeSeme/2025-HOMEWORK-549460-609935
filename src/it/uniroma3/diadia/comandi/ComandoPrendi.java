@@ -4,7 +4,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPrendi implements Comando {
+public class ComandoPrendi extends AbstractComando {
 
 	private IO io;
 	private String nomeAttrezzo;
@@ -23,23 +23,6 @@ public class ComandoPrendi implements Comando {
 		}else{
 			io.mostraMessaggio("Attrezzo troppo pesante per entrare nella borsa!");
 		}
-	}
-
-	@Override
-	public void setParametro(String parametro) {
-		this.nomeAttrezzo=parametro;
-
-	}
-
-	@Override
-	public String getParametro() {
-		return this.nomeAttrezzo;
-	}
-
-	@Override
-	public void setIo(IO io) {
-		this.io = io;
-		
 	}
 
 	@Override
