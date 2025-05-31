@@ -197,6 +197,14 @@ public class Stanza {
 		return direzioniStanze.keySet();
 	}
 	
+	public int getNumeroAttrezzi() {
+		return numeroAttrezzi;
+	}
+
+	public void setNumeroAttrezzi(int numeroAttrezzi) {
+		this.numeroAttrezzi = numeroAttrezzi;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome);
