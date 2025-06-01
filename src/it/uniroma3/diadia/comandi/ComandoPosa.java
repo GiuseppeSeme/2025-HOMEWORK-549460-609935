@@ -1,18 +1,16 @@
 package it.uniroma3.diadia.comandi;
 
-import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class ComandoPosa extends AbstractComando{
-	private IO io;
 	private String attrezzo;
-	private final static String NOME="aiuto";
+	private final static String NOME="posa";
 
 	@Override
 	public void esegui(Partita partita) {
 		if(attrezzo== null) {
-			io.mostraMessaggio("scrivere nel formato posa + 'nome dell attrezzo da prendere'");
+			this.getIo().mostraMessaggio("scrivere nel formato posa + 'nome dell attrezzo da prendere'");
 
 		}else if(partita.getGiocatore().getBorsa().hasAttrezzo(attrezzo)) {
 			Attrezzo posato = partita.getGiocatore().getBorsa().getAttrezzo(attrezzo);
@@ -20,9 +18,9 @@ public class ComandoPosa extends AbstractComando{
 			if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>0) {
 				partita.getLabirinto().getStanzaCorrente().addAttrezzo(posato);
 				partita.getGiocatore().getBorsa().removeAttrezzo(attrezzo);
-				io.mostraMessaggio("Attrezzo posato");
+				this.getIo().mostraMessaggio("Attrezzo posato");
 			}else {
-				io.mostraMessaggio("Non c'e' spazio nella stanza per questo attrezzo");
+				this.getIo().mostraMessaggio("Non c'e' spazio nella stanza per questo attrezzo");
 			}
 		}
 	}

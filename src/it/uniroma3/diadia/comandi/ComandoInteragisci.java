@@ -8,7 +8,6 @@ public class ComandoInteragisci extends AbstractComando{
 	private static final String MESSAGGIO_CON_CHI="Con chi interagisco?";
 	private String messaggio;
 	private IO io;
-	
 	@Override
 	public void esegui(Partita partita) {
 		AbstractPersonaggio personaggio;
