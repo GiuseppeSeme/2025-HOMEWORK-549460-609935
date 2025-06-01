@@ -9,19 +9,18 @@ public class ComandoPosa extends AbstractComando{
 
 	@Override
 	public void esegui(Partita partita) {
-		if(attrezzo== null) {
-			this.getIo().mostraMessaggio("scrivere nel formato posa + 'nome dell attrezzo da prendere'");
-
-		}else if(partita.getGiocatore().getBorsa().hasAttrezzo(attrezzo)) {
-			Attrezzo posato = partita.getGiocatore().getBorsa().getAttrezzo(attrezzo);
-
-			if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>0) {
-				partita.getLabirinto().getStanzaCorrente().addAttrezzo(posato);
-				partita.getGiocatore().getBorsa().removeAttrezzo(attrezzo);
-				this.getIo().mostraMessaggio("Attrezzo posato");
-			}else {
-				this.getIo().mostraMessaggio("Non c'e' spazio nella stanza per questo attrezzo");
-			}
+		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(this.getParametro());
+		if(a==null) {
+			this.getIo().mostraMessaggio("Attrezzo non presente nella borsa!");
+			return;
+		}
+		if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>0) {
+			partita.getLabirinto().getStanzaCorrente().addAttrezzo(a);
+			partita.getGiocatore().getBorsa().removeAttrezzo(this.getParametro());
+			this.getIo().mostraMessaggio("Attrezzo Posato!");
+		}
+		else {
+			this.getIo().mostraMessaggio("Non c'e' spazio nella stanza per poter inserire questo attrezzo!");
 		}
 	}
 	

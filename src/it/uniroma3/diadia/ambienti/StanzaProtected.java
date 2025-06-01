@@ -19,16 +19,16 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaProtected {
 	
-	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
+	static final protected int NUMERO_MASSIMO_DIREZIONI = 4;
+	static final protected int NUMERO_MASSIMO_ATTREZZI = 10;
 
-	private String nome;
-	private Map<String, Attrezzo> nomeAttrezzi;
-	private int numeroAttrezzi;
+	protected String nome;
+	protected Map<String, Attrezzo> nomeAttrezzi;
+	protected int numeroAttrezzi;
 	
 	
-	private Map<String, Stanza> direzioniStanze;
-	private int numeroStanzeAdiacenti;
+	protected Map<String, Stanza> direzioniStanze;
+	protected int numeroStanzeAdiacenti;
 
 	/**
 	 * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.

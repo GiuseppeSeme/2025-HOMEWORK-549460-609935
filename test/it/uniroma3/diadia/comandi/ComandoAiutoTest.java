@@ -2,6 +2,9 @@ package it.uniroma3.diadia.comandi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,18 +15,18 @@ import it.uniroma3.diadia.comandi.ComandoFine;
 import it.uniroma3.diadia.fixture.Fixture;
 
 class ComandoAiutoTest {
-
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
+	List<String> Lettura;
+	
 
 	@BeforeEach
 	void setUp() throws Exception {
+		Lettura = new ArrayList<>();
 	}
 
 	@Test
-	void testComandoAiuto() {
-		String[] Lettura= {"aiuto","fine"};
+	void testComandoAiuto() throws Exception{
+		Lettura.add("aiuto");
+		Lettura.add("fine");
 		IOSimulator io=Fixture.creaSimulazionePartita(Lettura);
 		assertTrue(io.hasNextMessaggio());
 		assertEquals(DiaDia.MESSAGGIO_BENVENUTO,io.nextMessaggio());

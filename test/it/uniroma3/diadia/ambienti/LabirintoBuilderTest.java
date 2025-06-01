@@ -5,14 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import it.uniroma3.diadia.ambienti.Labirinto.LabirintoBuilder;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 class LabirintoBuilderTest {
-	LabirintoBuilder lb;
+	Labirinto.LabirintoBuilder lb;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		lb=new LabirintoBuilder();
+		lb=new LabirintoBuilder("labirinto.txt");
 	}
 
 	@Test
@@ -32,6 +33,7 @@ class LabirintoBuilderTest {
 	void testAddAttrezzoSenzaUltimaStanzaAggiunta() {
 		assertEquals(LabirintoBuilder.class,lb.addAttrezzo("cacciavite",3).getClass());
 	}
+	
 	void testAddAttrezzoConUltimaStanzaAggiunta() {
 		lb.addStanzaIniziale("stanzetta").addAttrezzo("cacciavite", 3);
 		Attrezzo exp=new Attrezzo("cacciavite",3);

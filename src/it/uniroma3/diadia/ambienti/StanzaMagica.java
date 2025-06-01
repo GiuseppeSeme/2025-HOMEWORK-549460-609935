@@ -16,7 +16,7 @@ public class StanzaMagica extends Stanza {
 
 	public StanzaMagica(String nome, int soglia) {
 		super(nome);
-		this. contatoreAttrezziPosati = 0;
+		this.contatoreAttrezziPosati = 0;
 		this.sogliaMagica = soglia;
 	}
 
@@ -26,8 +26,7 @@ public class StanzaMagica extends Stanza {
 		int pesoX2 = attrezzo.getPeso() * 2;
 		nomeInvertito = new StringBuilder(attrezzo.getNome());
 		nomeInvertito = nomeInvertito.reverse();
-		attrezzo = new Attrezzo(nomeInvertito.toString(),
-				pesoX2);
+		attrezzo = new Attrezzo(nomeInvertito.toString(),pesoX2);
 		return attrezzo;
 	}
 

@@ -10,7 +10,7 @@ public class ComandoPrendi extends AbstractComando {
 
 	@Override
 	public void esegui(Partita partita) {
-		Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(this.getParametro());
 		if(a== null) {
 			this.getIo().mostraMessaggio("scrivere nel formato prendi + 'nome dell attrezzo da prendere'");
 

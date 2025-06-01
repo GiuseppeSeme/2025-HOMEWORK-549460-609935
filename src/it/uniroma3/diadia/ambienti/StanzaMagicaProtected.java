@@ -4,11 +4,11 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaMagicaProtected extends StanzaProtected {
 
-	private int contatoreAttrezziPosati;
+	protected int contatoreAttrezziPosati;
 
-	private int sogliaMagica;
+	protected int sogliaMagica;
 
-	private static final int SOGLIA_MAGICA_DEFAULT = 2;
+	protected static final int SOGLIA_MAGICA_DEFAULT = 2;
 
 	public StanzaMagicaProtected(String nome) {
 		this(nome, SOGLIA_MAGICA_DEFAULT);

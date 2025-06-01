@@ -2,15 +2,12 @@ package it.uniroma3.diadia.comandi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Scanner;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.IOConsole;
-import it.uniroma3.diadia.comandi.Comando;
-import it.uniroma3.diadia.comandi.ComandoVai;
-import it.uniroma3.diadia.comandi.ComandoFine;
-import it.uniroma3.diadia.comandi.ComandoNonValido;
-import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
 import it.uniroma3.diadia.IO;
 
 class FabbricaDiComandiFisarmonicaTest {
@@ -21,7 +18,7 @@ class FabbricaDiComandiFisarmonicaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		io=new IOConsole();
+		io=new IOConsole(new Scanner(System.in));
 		fabbrica=new FabbricaDiComandiFisarmonica(io);
 	}
 
