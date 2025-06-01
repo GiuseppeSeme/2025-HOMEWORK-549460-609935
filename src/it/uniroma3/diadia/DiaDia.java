@@ -2,6 +2,7 @@ package it.uniroma3.diadia;
 
 
 import it.uniroma3.diadia.comandi.Comando;
+import it.uniroma3.diadia.ambienti.Direzione;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
@@ -174,7 +175,7 @@ public class DiaDia {
 				.addStanzaIniziale("Atrio")
 				.addAttrezzo("martello", 3)
 				.addStanzaVincente("Biblioteca")
-				.addAdiacenza("Atrio", "Biblioteca", "nord")
+				.addAdiacenza("Atrio", "Biblioteca", Direzione.nord)
 				.getLabirinto();
 		DiaDia gioco = new DiaDia(console, labirinto);
 		gioco.gioca();

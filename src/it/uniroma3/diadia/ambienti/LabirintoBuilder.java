@@ -50,7 +50,7 @@ public class LabirintoBuilder {
 		return this;
 	}
 	
-	public LabirintoBuilder addAdiacenza(String stanzaCorrente,String stanzaAdiacente, String direzione){
+	public LabirintoBuilder addAdiacenza(String stanzaCorrente,String stanzaAdiacente, Direzione direzione){
 		Stanza c=this.nomeStanza.get(stanzaCorrente);
 		Stanza a=this.nomeStanza.get(stanzaAdiacente);
 		c.impostaStanzaAdiacente(direzione, a);
@@ -68,8 +68,8 @@ public class LabirintoBuilder {
 		return this;
 	}
 	
-	public LabirintoBuilder addStanzaBloccata(String nome,String attrezzoSblocco,String direzioneBloccata){
-		Stanza stanza=new StanzaBloccata(nome,attrezzoSblocco,direzioneBloccata);
+	public LabirintoBuilder addStanzaBloccata(String nome,String attrezzoSblocco,Direzione direzioneBloccata){
+		Stanza stanza=new StanzaBloccata(nome,direzioneBloccata,attrezzoSblocco);
 		this.UltimaStanzaAggiuntaEAggiorna(stanza);
 		return this;
 	}

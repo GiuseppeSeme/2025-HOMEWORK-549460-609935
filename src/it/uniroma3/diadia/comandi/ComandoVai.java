@@ -2,11 +2,12 @@ package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Direzione;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.giocatore.Giocatore;
 
 public class ComandoVai extends AbstractComando {
-	private String direzione;
+	private Direzione direzione;
 	private IO io;
 	private final static String NOME = "vai";
 

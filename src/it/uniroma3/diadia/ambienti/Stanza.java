@@ -1,4 +1,5 @@
 package it.uniroma3.diadia.ambienti;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
@@ -28,8 +30,9 @@ public class Stanza {
 	private int numeroAttrezzi;
 	
 	
-	private Map<String, Stanza> direzioniStanze;
+	private Map<Direzione, Stanza> direzioniStanze;
 	private int numeroStanzeAdiacenti;
+	private AbstractPersonaggio personaggio;
 
 	/**
 	 * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
@@ -44,10 +47,14 @@ public class Stanza {
 	}
 	
 	public List<Stanza> getStanzeAdiacenti(){
-		return(List<Stanza>) direzioniStanze.values();
+		List<Stanza> listaStanzeAdiacenti = new ArrayList<>();
+		for (Stanza s : direzioniStanze.values()) {
+			listaStanzeAdiacenti.add(s);
+		}
+		return listaStanzeAdiacenti;
 	}
 
-	public void setStanzeAdiacenti(Map<String, Stanza> stanzeAdiacenti) {
+	public void setStanzeAdiacenti(Map<Direzione, Stanza> stanzeAdiacenti) {
 		this.direzioniStanze = stanzeAdiacenti;
 	}
 
@@ -68,7 +75,7 @@ public class Stanza {
 	 * @param direzione direzione in cui sara' posta la stanza adiacente.
 	 * @param stanza stanza adiacente nella direzione indicata dal primo parametro.
 	 */
-	public void impostaStanzaAdiacente(String direzione, Stanza stanza) {
+	public void impostaStanzaAdiacente(Direzione direzione, Stanza stanza) {
 		boolean aggiornato = false;
 		/*for(int i=0; i<this.direzioni.length; i++)  
 			if (direzione.equals(this.direzioni[i])) { 
@@ -90,7 +97,7 @@ public class Stanza {
 	 * Restituisce la stanza adiacente nella direzione specificata
 	 * @param direzione
 	 */
-	public Stanza getStanzaAdiacente(String direzione) {
+	public Stanza getStanzaAdiacente(Direzione direzione) {
 		Stanza stanza = null;
 			if (this.direzioniStanze.containsKey(direzione))
 				stanza = this.direzioniStanze.get(direzione);
@@ -147,7 +154,7 @@ public class Stanza {
 		StringBuilder risultato = new StringBuilder();
 		risultato.append(this.nome);
 		risultato.append("\nUscite: ");
-		risultato.append(this.getDescrizione().toString());
+		risultato.append(this.getDirezioni().toString());
 		
 		if(this.getAttrezzi()==null)
 			risultato.append("\nNessun Attrezzo");
@@ -193,7 +200,7 @@ public class Stanza {
 		return false;
 	}
 
-	public Set<String> getDirezioni(){
+	public Set<Direzione> getDirezioni(){
 		return direzioniStanze.keySet();
 	}
 	
@@ -220,4 +227,13 @@ public class Stanza {
 		Stanza that=(Stanza) obj;
 		return this.getNome().equals(that.getNome());
 	}
+	
+	public void setPersonaggio(AbstractPersonaggio personaggio) {
+		this.personaggio=personaggio;
+	}
+	
+	public AbstractPersonaggio getPersonaggio() {
+		return this.personaggio;
+	}
+	
 }
