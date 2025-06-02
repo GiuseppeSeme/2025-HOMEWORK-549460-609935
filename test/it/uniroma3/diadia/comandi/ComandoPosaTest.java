@@ -13,8 +13,6 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.comandi.Comando;
-import it.uniroma3.diadia.comandi.ComandoPosa;
 
 class ComandoPosaTest {
 

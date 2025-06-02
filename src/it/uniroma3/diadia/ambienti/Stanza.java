@@ -197,7 +197,7 @@ public class Stanza {
 				this.nomeAttrezzi.remove(wanted.getNome(),wanted);
 				return true;
 			}else
-		return false;
+				return false;
 	}
 
 	public Set<Direzione> getDirezioni(){

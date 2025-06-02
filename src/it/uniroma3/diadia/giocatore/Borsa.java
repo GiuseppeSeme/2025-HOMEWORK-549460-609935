@@ -71,10 +71,9 @@ public class Borsa {
 	}
 	
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		Attrezzo a = null;
-		if(nomeAttrezzo!=null)
-			a= nome2attrezzi.remove(nomeAttrezzo);
-		return a;
+		if(this.nome2attrezzi.containsKey(nomeAttrezzo))
+			this.pesoAttuale = this.pesoAttuale - this.nome2attrezzi.get(nomeAttrezzo).getPeso();
+		return this.nome2attrezzi.remove(nomeAttrezzo);
 	}
 
 	

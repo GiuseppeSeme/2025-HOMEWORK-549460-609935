@@ -18,8 +18,6 @@ import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Direzione;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.comandi.Comando;
-import it.uniroma3.diadia.comandi.ComandoVai;
 import it.uniroma3.diadia.fixture.Fixture;
 
 public class ComandoVaiTest {
