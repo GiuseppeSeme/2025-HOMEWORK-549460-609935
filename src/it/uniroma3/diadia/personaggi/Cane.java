@@ -13,21 +13,23 @@ public class Cane extends AbstractPersonaggio{
 	
 	@Override
 	public String agisci(Partita partita) {
-		String msg=MESSAGGIO_CANE;
 		partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
-		return msg;
+		return MESSAGGIO_CANE;
 	}
 	
 	@Override
 	public String riceviRegalo(Attrezzo attrezzo, Partita partita) {
 		StringBuilder risposta = new StringBuilder("Bau grazie per avermi regalato ");
-		
+		if(attrezzo==null) return "non hai inserito l'attrezzo da regalare";
 		if(attrezzo.getNome().equals(CIBO_PREFERITO)) {
 			risposta.append("il mio cibo preferito.");
 			partita.getStanzaCorrente().addAttrezzo(new Attrezzo("Collare", 2));
+			risposta.append(this.getNome() + "ha lasciato un oggetto");
 		}else {
-			risposta.append(attrezzo.getNome()+ ",ma non è il mio cibo preferito! ");
-			this.agisci(partita);//TODO forse causa di problemi
+			risposta.append(attrezzo.getNome()+ ",ma non è il mio cibo preferito! \n");
+			partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
+			risposta.append("Il cane non accetta il tuo regalo e ti morde\n");
+			risposta.append(MESSAGGIO_CANE);
 		}
 		return risposta.toString();
 	}
