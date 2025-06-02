@@ -160,7 +160,7 @@ public class Stanza {
 			risultato.append("\nNessun Attrezzo");
 		else {
 			risultato.append("\nAttrezzi nella stanza: ");
-			risultato.append(this.getAttrezzi().toString());
+			risultato.append(this.nomeAttrezzi.values().toString());
 		}
 		return risultato.toString();
 	}
