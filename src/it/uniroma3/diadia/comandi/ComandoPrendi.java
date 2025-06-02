@@ -5,7 +5,6 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class ComandoPrendi extends AbstractComando {
 
-	private String nomeAttrezzo;
 	private final static String NOME = "prendi";
 
 	@Override

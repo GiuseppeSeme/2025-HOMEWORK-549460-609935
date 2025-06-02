@@ -4,7 +4,6 @@ import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class ComandoPosa extends AbstractComando{
-	private String attrezzo;
 	private final static String NOME="posa";
 
 	@Override
